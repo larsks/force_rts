@@ -35,9 +35,15 @@ Compile the library:
 $ make
 ```
 
-And then `LD_PRELOAD` it when running software that access the serial port:
+Set the `FORCE_RTS_DEVICES` environment variable to a colon-delimited list of serial devices (or glob patterns) for which we should override the RTS value:
+
+```
+export FORCE_RTS_DEVICES="/dev/ttyS0:/dev/ttyUSB*"
+```
+
+And then `LD_PRELOAD` the library when running software that access the serial port:
 
 ```
 $ export LD_PRELOAD=$PWD/force_rts.so
-$ somecomand ...
+$ some comand ...
 ```
