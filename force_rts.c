@@ -6,8 +6,11 @@
 #include <sys/ioctl.h>
 #include <fnmatch.h>
 #include <string.h>
-#include <dlfcn.h>
 #include <errno.h>
+
+// This is necessary to get the definition of RTLD_NEXT
+#define _GNU_SOURCE
+#include <dlfcn.h>
 
 // This is necessary to get the definition of O_TMPFILE
 #define __USE_GNU
